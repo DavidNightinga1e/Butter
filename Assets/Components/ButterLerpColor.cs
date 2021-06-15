@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Butter.Components
 {
@@ -8,7 +9,6 @@ namespace Butter.Components
 
         public Color startColor;
         public Color endColor;
-        public float timeToChangeColor;
 
         private Material _targetMaterial;
 
@@ -16,7 +16,13 @@ namespace Butter.Components
         {
             _targetMaterial = new Material(targetRenderer.material) {color = startColor};
             targetRenderer.material = _targetMaterial;
-            _targetMaterial.color.LerpForSeconds(endColor, timeToChangeColor, color => _targetMaterial.color = color);
+            _targetMaterial.color.LerpForSeconds(endColor, length, color => _targetMaterial.color = color);
+        }
+
+        public override IEnumerable PlayAsync()
+        {
+            Play();
+            yield return new WaitForSeconds(length);
         }
     }
 }

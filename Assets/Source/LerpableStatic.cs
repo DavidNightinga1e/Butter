@@ -33,6 +33,11 @@ namespace Butter
                     PreciseFloat.Evaluate(minValue.y, maxValue.y, t),
                     PreciseFloat.Evaluate(minValue.z, maxValue.z, t)));
 
+        public static readonly Lerper<Quaternion> Quaternion = new Lerper<Quaternion>(UnityEngine.Quaternion.Lerp);
+
+        public static readonly Lerper<Quaternion> QuaternionSpherical =
+            new Lerper<Quaternion>(UnityEngine.Quaternion.Slerp);
+
         public static readonly Lerper<Vector2> Vector2Imprecise =
             new Lerper<Vector2>((minValue, maxValue, t)
                 => new Vector2(

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Butter.Components
 {
@@ -8,15 +9,17 @@ namespace Butter.Components
 
         public Vector3 startPosition;
         public Vector3 endPosition;
-        public float timeToMove;
 
         public override void Play()
         {
             targetTransform.position = startPosition;
-            targetTransform.position.LerpForSeconds(
-                endPosition,
-                timeToMove,
-                vector3 => targetTransform.position = vector3);
+            targetTransform.LerpPositionForSeconds(endPosition, length);
+        }
+
+        public override IEnumerable PlayAsync()
+        {
+            Play();
+            yield return new WaitForSeconds(length);
         }
     }
 }
