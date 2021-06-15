@@ -17,7 +17,7 @@ namespace Tests
             const float startValue = 0f;
             const float endValue = 100f;
 
-            var lerpable = Lerpable.PreciseFloat;
+            var lerpable = Lerper.PreciseFloat;
             var runner = new GameObject($"ClipRunner-{DateTime.Now.Ticks}").AddComponent<ClipRunner>();
             var clip = new Clip<float>(lerpable, f => actual = f, startValue, endValue, 1f);
             runner.AddClip(clip);
@@ -34,7 +34,7 @@ namespace Tests
             const float startValue = 0f;
             const float endValue = 100f;
 
-            var lerpable = Lerpable.PreciseFloat;
+            var lerpable = Lerper.PreciseFloat;
             var runner = new GameObject($"ClipRunner-{DateTime.Now.Ticks}").AddComponent<ClipRunner>();
             var clip = new Clip<float>(lerpable, f => actual = f, startValue, endValue, 1f);
             runner.AddClip(clip);
@@ -54,7 +54,7 @@ namespace Tests
             const float startValue = 0f;
             const float endValue = 100f;
 
-            var lerpable = Lerpable.PreciseFloat;
+            var lerpable = Lerper.PreciseFloat;
             var runner = new GameObject($"ClipRunner-{DateTime.Now.Ticks}").AddComponent<ClipRunner>();
             var clip = new Clip<float>(lerpable, f => actual = f, startValue, endValue, 1f);
             runner.AddClip(clip);
@@ -73,7 +73,7 @@ namespace Tests
             const float startValue = 0f;
             const float endValue = 100f;
 
-            var lerpable = Lerpable.ImpreciseFloat;
+            var lerpable = Lerper.ImpreciseFloat;
             var runner = new GameObject($"ClipRunner-{DateTime.Now.Ticks}").AddComponent<ClipRunner>();
             var clip = new Clip<float>(lerpable, f => actual = f, startValue, endValue, 1f);
             runner.AddClip(clip);
@@ -90,7 +90,7 @@ namespace Tests
             const float startValue = 0f;
             const float endValue = 100f;
 
-            var lerpable = Lerpable.ImpreciseFloat;
+            var lerpable = Lerper.ImpreciseFloat;
             var runner = new GameObject($"ClipRunner-{DateTime.Now.Ticks}").AddComponent<ClipRunner>();
             var clip = new Clip<float>(lerpable, f => actual = f, startValue, endValue, 1f);
             runner.AddClip(clip);
@@ -110,7 +110,7 @@ namespace Tests
             const float startValue = 0f;
             const float endValue = 100f;
 
-            var lerpable = Lerpable.ImpreciseFloat;
+            var lerpable = Lerper.ImpreciseFloat;
             var runner = new GameObject($"ClipRunner-{DateTime.Now.Ticks}").AddComponent<ClipRunner>();
             var clip = new Clip<float>(lerpable, f => actual = f, startValue, endValue, 1f);
             runner.AddClip(clip);

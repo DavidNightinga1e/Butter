@@ -9,7 +9,7 @@ namespace Butter
         {
             var clipRunner = ClipRunnerProvider.GetRunner();
             var clip = new Clip<float>(
-                Lerpable.ImpreciseFloat,
+                Lerper.ImpreciseFloat,
                 resultProvider.Invoke,
                 targetValue,
                 to,
@@ -22,7 +22,20 @@ namespace Butter
         {
             var clipRunner = ClipRunnerProvider.GetRunner();
             var clip = new Clip<Vector3>(
-                Lerpable.Vector3Imprecise,
+                Lerper.Vector3Imprecise,
+                resultProvider.Invoke,
+                targetValue,
+                to,
+                time);
+            clipRunner.AddClip(clip);
+        }
+
+        public static void LerpForSeconds(this Color targetValue, Color to, float time,
+            Action<Color> resultProvider)
+        {
+            var clipRunner = ClipRunnerProvider.GetRunner();
+            var clip = new Clip<Color>(
+                Lerper.ColorRgbImprecise,
                 resultProvider.Invoke,
                 targetValue,
                 to,

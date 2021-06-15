@@ -7,7 +7,7 @@ namespace Butter
         private readonly T _startValue;
         private readonly T _endValue;
         private readonly Set _setter;
-        private readonly Lerpable<T> _lerpable;
+        private readonly Lerper<T> _lerper;
         private readonly float _timeLength;
 
         private float _currentTime;
@@ -18,9 +18,9 @@ namespace Butter
 
         public delegate void Set(T value);
 
-        public Clip(Lerpable<T> lerpable, Set set, T startValue, T endValue, float timeLength)
+        public Clip(Lerper<T> lerper, Set set, T startValue, T endValue, float timeLength)
         {
-            _lerpable = lerpable;
+            _lerper = lerper;
             _setter = set;
             _startValue = startValue;
             _endValue = endValue;
@@ -42,7 +42,7 @@ namespace Butter
 
         private void Calculate()
         {
-            var newValue = _lerpable.Evaluate(_startValue, _endValue, CurrentTimeNormalized);
+            var newValue = _lerper.Evaluate(_startValue, _endValue, CurrentTimeNormalized);
             _setter.Invoke(newValue);
         }
     }

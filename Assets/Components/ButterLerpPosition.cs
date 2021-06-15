@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Butter.Examples
+namespace Butter.Components
 {
-    public class LerpPosition : MonoBehaviour
+    public class ButterLerpPosition : ButterComponent
     {
         public Transform targetTransform;
 
@@ -11,7 +10,7 @@ namespace Butter.Examples
         public Vector3 endPosition;
         public float timeToMove;
 
-        private void Awake()
+        public override void Play()
         {
             targetTransform.position = startPosition;
             targetTransform.position.LerpForSeconds(

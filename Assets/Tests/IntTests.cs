@@ -17,7 +17,7 @@ namespace Tests
             const int startValue = 0;
             const int endValue = 100;
 
-            var lerpable = Lerpable.IntRoundNearest;
+            var lerpable = Lerper.IntRoundNearest;
             var runner = new GameObject($"ClipRunner-{DateTime.Now.Ticks}").AddComponent<ClipRunner>();
             var clip = new Clip<int>(lerpable, f => actual = f, startValue, endValue, 1f);
             runner.AddClip(clip);
@@ -34,7 +34,7 @@ namespace Tests
             const int startValue = 0;
             const int endValue = 100;
 
-            var lerpable = Lerpable.IntRoundNearest;
+            var lerpable = Lerper.IntRoundNearest;
             var runner = new GameObject($"ClipRunner-{DateTime.Now.Ticks}").AddComponent<ClipRunner>();
             var clip = new Clip<int>(lerpable, f => actual = f, startValue, endValue, 1f);
             runner.AddClip(clip);
@@ -54,7 +54,7 @@ namespace Tests
             const int startValue = 0;
             const int endValue = 100;
 
-            var lerpable = Lerpable.IntRoundNearest;
+            var lerpable = Lerper.IntRoundNearest;
             var runner = new GameObject($"ClipRunner-{DateTime.Now.Ticks}").AddComponent<ClipRunner>();
             var clip = new Clip<int>(lerpable, f => actual = f, startValue, endValue, 1f);
             runner.AddClip(clip);
@@ -73,7 +73,7 @@ namespace Tests
             const int startValue = 0;
             const int endValue = 100;
 
-            var lerpable = Lerpable.IntFloor;
+            var lerpable = Lerper.IntFloor;
             var runner = new GameObject($"ClipRunner-{DateTime.Now.Ticks}").AddComponent<ClipRunner>();
             var clip = new Clip<int>(lerpable, f => actual = f, startValue, endValue, 1f);
             runner.AddClip(clip);
@@ -90,7 +90,7 @@ namespace Tests
             const int startValue = 0;
             const int endValue = 100;
 
-            var lerpable = Lerpable.IntFloor;
+            var lerpable = Lerper.IntFloor;
             var runner = new GameObject($"ClipRunner-{DateTime.Now.Ticks}").AddComponent<ClipRunner>();
             var clip = new Clip<int>(lerpable, f => actual = f, startValue, endValue, 1f);
             runner.AddClip(clip);
@@ -110,7 +110,7 @@ namespace Tests
             const int startValue = 0;
             const int endValue = 100;
 
-            var lerpable = Lerpable.IntFloor;
+            var lerpable = Lerper.IntFloor;
             var runner = new GameObject($"ClipRunner-{DateTime.Now.Ticks}").AddComponent<ClipRunner>();
             var clip = new Clip<int>(lerpable, f => actual = f, startValue, endValue, 1f);
             runner.AddClip(clip);
