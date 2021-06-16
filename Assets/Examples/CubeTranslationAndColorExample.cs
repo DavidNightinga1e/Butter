@@ -19,16 +19,21 @@ namespace Examples
 
         IEnumerator Start()
         {
-            var positionForward = targetTransform.LerpPositionForSeconds(@from, to, timeLength);
-            var positionBackward = targetTransform.LerpPositionForSeconds(to, from, timeLength);
             targetRenderer.material = new Material(targetRenderer.material);
-            var colorForward = targetRenderer.material.color.LerpForSeconds(fromColor, toColor, timeLength,
-                color => targetRenderer.material.color = color);
-            var colorBackward = targetRenderer.material.color.LerpForSeconds(toColor, fromColor, timeLength,
-                color => targetRenderer.material.color = color);
 
-            var positionsSequence = new ClipSequence(positionForward, positionBackward);
-            var colorSequence = new ClipSequence(colorForward, colorBackward);
+            var forward = new Clip<(Color, Vector3)>(new Lerper<(Color, Vector3)>(LerpFunction), tuple =>
+            {
+                targetRenderer.material.color = tuple.Item1;
+                targetTransform.position = tuple.Item2;
+            }, (fromColor, @from), (toColor, to), timeLength);
+
+            yield return forward.StartAsync();
+        }
+
+        private (Color, Vector3) LerpFunction((Color, Vector3) minvalue, (Color, Vector3) maxvalue, float t)
+        {
+            return (Lerper.ColorRgbImprecise.Evaluate(minvalue.Item1, maxvalue.Item1, t),
+                Lerper.Vector3Imprecise.Evaluate(minvalue.Item2, maxvalue.Item2, t));
         }
     }
 }

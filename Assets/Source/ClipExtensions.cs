@@ -11,7 +11,7 @@ namespace Butter
             clipRunner.AddClip(clip);
         }
 
-        public static IEnumerable StartAsync(this Clip clip)
+        public static IEnumerator StartAsync(this Clip clip)
         {
             Start(clip);
             yield return new WaitUntil(() => clip.IsEnded);
